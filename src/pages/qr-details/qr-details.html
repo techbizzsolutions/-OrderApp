@@ -1,0 +1,70 @@
+<ion-header>
+
+  <ion-navbar color="header">
+      <ion-title>CMS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+    <ion-row>
+        <ion-col col-6>
+            <ion-item (click)="opencal('From')">
+                <ion-label class="marginlbl">{{ From }}</ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col col-6>
+            <ion-item (click)="opencal('To')">
+                <ion-label class="marginlbl">{{ To }}</ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <div class="button_div">
+      <button ion-button block (click)="filter()">
+        Filter
+      </button>
+    </div>
+    <ion-item>
+        <ion-label>Select Note</ion-label>
+        <ion-select interface="popover" [disabled]="!noteList.length" [(ngModel)]="note"  >
+          <ion-option *ngFor="let note of noteList" [value]="note">{{note.CPRH_Remarks}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Select Employee</ion-label>
+      <ion-select interface="popover" [disabled]="!noteList.length" [(ngModel)]="employee" >
+        <ion-option *ngFor="let employee of EmpList" [value]="employee">{{employee.SOD_Employee}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="button_div">
+        <button ion-button block (click)="Search()">
+          Search
+        </button>
+      </div>
+      <div *ngIf="filterdata.length" style="overflow-x:auto;">
+          <table style="width:100%">
+              <tr class="bckcolor">
+                  <th>Employee</th>
+                  <th>Date</th>
+                  <th>Ref No.</th>
+                  <th>Coupon Type</th>
+                  <th>Coupon Point</th>
+                  <th>Party Name</th>
+                  <th>Remarks</th>
+              </tr>
+              <tr *ngFor="let item of filterdata;">
+                  <td class="border">{{item.Employee}}</td>
+                  <td class="border">{{item.Date}}</td>
+                  <td class="border">{{item['Ref No.']}}</td>
+                  <td class="border">{{item['Coupon Type']}}</td>
+                  <td class="border">{{item['Coupon Point']}}</td>
+                  <td class="border">{{item['Party Name']}}</td>
+                  <td class="border">{{item.Remarks}}</td>
+              </tr>
+          </table>
+      </div>
+      <div *ngIf="!filterdata.length">
+        <h4>No Data</h4>
+      </div>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color="header">
+      <ion-title>CMS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h5>Login</h5>
+  <ion-item>
+      <ion-label>Select Your Location</ion-label>
+      <ion-select interface="popover" [(ngModel)]="region">
+        <ion-option *ngFor="let location of Locations" [value]="location">{{location.Location}}</ion-option>
+      </ion-select>
+  </ion-item>
+  <form [formGroup]="register" (ngSubmit)="logForm()">
+      <ion-item>
+          <ion-label floating>User name</ion-label>
+          <ion-input type="text" formControlName="Username"></ion-input>
+      </ion-item>
+      <div padding-horizontal>
+          <div class="alert" *ngIf="!register.controls['Username'].valid && register.controls['Username'].touched">Please Enter a User name</div>
+      </div>
+      <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="Password" formControlName="Password"></ion-input>
+      </ion-item>
+      <div padding-horizontal>
+          <div class="alert" *ngIf="!register.controls['Password'].valid && register.controls['Password'].touched">Please Enter Password</div>
+      </div>
+      <h6 *ngIf="this.deviceId">IMEI: {{this.deviceId.__zone_symbol__value}}</h6>
+      <!-- Float the icon right -->
+      <div class="button_div">
+          <button ion-button [disabled]="!register.valid" block icon-right>
+          Login
+      <ion-icon name="log-in"></ion-icon>
+    </button>
+      </div>
+  </form>
+</ion-content>

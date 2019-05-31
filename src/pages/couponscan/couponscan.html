@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar color="header">
+      <ion-title>CMS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h5>Manual Coupon Scan</h5>
+  <form [formGroup]="register" (ngSubmit)="logForm()">
+      <ion-item>
+          <ion-label floating>Comment</ion-label>
+          <ion-input type="text" formControlName="Comment"></ion-input>
+      </ion-item>
+      <div padding-horizontal>
+          <div class="alert" *ngIf="!register.controls['Comment'].valid && register.controls['Comment'].touched">Please Enter Comment</div>
+      </div>
+      <ion-item>
+          <ion-label floating>Coupon Number</ion-label>
+          <ion-input type="text" formControlName="coupon"></ion-input>
+      </ion-item>
+      <div padding-horizontal>
+          <div class="alert" *ngIf="!register.controls['coupon'].valid && register.controls['coupon'].touched">Please Enter Coupon Number</div>
+      </div>
+      <!-- Float the icon right -->
+      <div class="button_div">
+          <button ion-button [disabled]="!register.valid" block icon-right>
+          Add
+      <ion-icon name="log-in"></ion-icon>
+    </button>
+      </div>
+  </form>
+</ion-content>

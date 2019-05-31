@@ -1,0 +1,48 @@
+<ion-header>
+
+    <ion-navbar color="header">
+        <ion-title>CMS</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  <ion-content padding>
+      <ion-item (click)="opencal()">
+          <ion-label class="marginlbl">{{ From }}</ion-label>
+      </ion-item>
+      <div class="button_div">
+        <button ion-button block (click)="filter()">
+          Filter
+        </button>
+      </div>
+      <ion-item>
+          <ion-label>Select Note</ion-label>
+          <ion-select interface="popover" [disabled]="!noteList.length" [(ngModel)]="note" [compareWith]="comparenote" >
+            <ion-option *ngFor="let note of noteList" [value]="note">{{note.Notes}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <div class="button_div">
+          <button ion-button block (click)="Search()">
+            Search
+          </button>
+        </div>
+        <div *ngIf="filterdata.length" style="overflow-x:auto;">
+            <table style="width:100%">
+                <tr class="bckcolor">
+                    <th>TransId</th>
+                    <th>RefNo</th>
+                    <th>Couponpoints</th>
+                                        <th>Notes</th>
+                </tr>
+                <tr *ngFor="let item of filterdata;">
+                    <td class="border">{{item.TransId}}</td>
+                    <td class="border">{{item.RefNo}}</td>
+                    <td class="border">{{item.Couponpoints}}</td>
+                                <td class="border">{{item.Notes}}</td>
+                </tr>
+            </table>
+        </div>
+        <div *ngIf="!filterdata.length">
+          <h4>No Data</h4>
+        </div>
+  </ion-content>
+  

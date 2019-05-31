@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>CMS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+            <p>AppOrderNo: {{ item.AppOrderNo }}</p>
+            <p>Employee: {{ item.Employee }}</p>
+            <p>Customer: {{ item.Customer }}</p>
+            <p>PartName: {{ item.PartName }}</p>
+          </ion-item> 
+          <ion-item *ngIf="!items.length">
+             <h4>No Data</h4>
+          </ion-item>
+      </ion-list>
+</ion-content>

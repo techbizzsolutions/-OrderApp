@@ -1,0 +1,17 @@
+page-qrscanning {
+.maincenter{
+    position: absolute;
+    width: 430px;
+    height: 350px;
+    left: 50%;
+    top: 50%;
+    color: #000;
+    text-align: center;
+    transform:translate(-50%,-50%);
+  p{
+    color: black !important;
+    margin: 0px !important;
+    text-align: center !important;
+  }
+}
+}

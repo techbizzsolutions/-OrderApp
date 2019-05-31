@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar color="header">
+      <ion-title>CMS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <div *ngIf="pcdata.length" style="overflow-x:auto;">
+    <table style="width:100%">
+        <tr class="bckcolor">
+            <th>Part No</th>
+            <th>Part Name</th>
+        </tr>
+        <tr *ngFor="let item of pcdata;">
+            <td class="border">{{item.PartNo}}</td>
+            <td class="border">{{item.Description}}</td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="!pcdata.length">
+  <h4>No Data</h4>
+</div>
+</ion-content>

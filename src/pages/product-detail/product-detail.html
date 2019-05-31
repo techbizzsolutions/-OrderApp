@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>CMS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="productdata">
+    <p>Employee: {{ productdata.Employee }}</p>
+    <p>Customer: {{productdata.Customer}}</p>
+    <p>Order No.: {{productdata.AppOrderNo}}</p>
+    <p>Order Date: {{productdata.OrderDate}}</p>
+    <P>Cust. Po No: {{productdata.PoNo}}</P>
+    <P>Cust. Po Date: {{productdata.PoDate}}</P>
+    <P>ERP Order NO.: {{productdata.IntPoNo}}</P>
+    <P>Part No.: {{productdata.PartNo}}</P>
+    <p>Part Name: {{productdata.PartName}}</p>
+    <p>Order Qty: {{productdata.OrdQty}}</p>
+    <p>Accepted Qty: {{productdata.AccQty}} </p>
+    <p>Despatch Qty: {{productdata.DespQty}}</p>
+    <p>Pending Qty: {{productdata.PendQty}}</p>
+    <p>Order Status: {{productdata.OrderAction}}</p>
+    <p>Comments: {{productdata.Comments}}</p>
+</div>
+</ion-content>

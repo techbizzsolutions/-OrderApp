@@ -1,0 +1,93 @@
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>CMS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h5>{{username}}</h5>
+  <form [formGroup]="addorder">
+      <ion-item>
+          <ion-label>Select Customer</ion-label>
+          <select-searchable 
+              item-content
+              [(ngModel)]="customer"
+              [items]="Customers"
+              itemValueField="SOD_CustomerId"
+              itemTextField="SOD_CustomerName"
+              [canSearch]="true"
+              (onChange)="portChange($event)" [ngModelOptions]="{standalone: true}">
+          </select-searchable>
+      </ion-item>
+      <!-- <ion-item>
+          <ion-label>Select Customer</ion-label>
+          <ion-select interface="popover" [(ngModel)]="customer" [ngModelOptions]="{standalone: true}">
+            <ion-option *ngFor="let Customer of Customers" [value]="Customer">{{Customer.SOD_CustomerName}}</ion-option>
+          </ion-select>
+        </ion-item> -->
+    <ion-row>
+      <ion-col col-6>
+        <ion-item (click)="opencal('Order')">
+          <ion-label class="marginlbl">{{ orderdate }}</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label>{{orderNo}}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-item (click)="opencal('Po')">
+          <ion-label class="marginlbl">{{ podate }}</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item>
+          <ion-input type="number" placeholder="Party Po No." formControlName="poNumber"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <hr>
+    <div *ngFor="let item of items">
+      <p>Product: {{ item.SOD_ProductName }}</p>
+      <p>Quantity: {{ item.qty }}</p>
+      <p>Del. Location: {{ item.SOD_DeliveryLocationName }}</p>
+      <p>Del. Date: {{ item.delDate }}</p>
+      <!-- <p>Comm. Date: {{ item.commDate }}</p> -->
+    </div>
+    
+    <div class="button_div">
+      <button ion-button small (click)="additem()">
+        Add Item
+      </button>
+    </div>
+    <hr>
+    <ion-item>
+        <ion-textarea placeholder="Enter Comment" rows="2" formControlName="Comment"></ion-textarea>
+    </ion-item>
+    <!-- <ion-item>
+        <ion-label floating>Payment in Days</ion-label>
+        <ion-input type="number" formControlName="payment"></ion-input>
+      </ion-item>
+      <div padding-horizontal>
+        <div class="alert" *ngIf="!addorder.controls['payment'].valid && addorder.controls['payment'].touched">Please
+          Enter Payment in Days</div>
+    </div> -->
+    <ion-item>
+        <ion-label>Select SO Type</ion-label>
+        <ion-select interface="popover" [(ngModel)]="sotype" [ngModelOptions]="{standalone: true}">
+          <ion-option *ngFor="let SoType of SoTypes" [value]="SoType">{{SoType.SOD_SOTypeName}}</ion-option>
+        </ion-select>
+      </ion-item>
+    <div class="button_div">
+        <button ion-button [disabled]="!addorder.valid" (click)="submitorder()" block >
+        submit
+         </button>
+    </div>
+  </form>
+</ion-content>

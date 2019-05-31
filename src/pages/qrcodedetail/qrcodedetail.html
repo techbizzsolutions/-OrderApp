@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar color="header">
+      <ion-title>CMS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<div *ngIf="qrdata" style="text-align: center;">
+ <h5>{{qrdata.ccompanyname}}</h5>
+ <h6>{{qrdata.cexecutivename}}</h6>
+ <p>{{qrdata.cbarcode}}</p>
+ <p>{{qrdata.ctype}}</p>
+ <p>{{qrdata.cproduct}}</p>
+ <p>{{qrdata.cpackinglistno}}</p>
+ <p>{{qrdata.cresponse}}</p>
+ <p>{{qrdata.cpoints}}</p>
+ <p>{{qrdata.ctransactionno}}</p>
+</div>
+<!-- Float the icon right -->
+<div class="button_div">
+  <button ion-button (click)="close()">
+    Close
+  </button>
+</div>
+</ion-content>

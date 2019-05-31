@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="header">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>CMS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="firstdiv">
+      <img style="height: 100%;width: 100%;" [src]="user">
+  </div>
+<div class="carddiv">
+    <ion-row>
+        <ion-col col-4>
+          <ion-card  (click)="Qrdetails()">
+            <img src="assets/imgs/REPORT.png">
+            <p>QR Detail</p>
+          </ion-card>
+        </ion-col>
+        <ion-col col-4>
+          <ion-card (click)="scan()">
+            <img  src="assets/imgs/QR_SCAN.png" >
+            <p>Scan QR</p>
+          </ion-card>
+        </ion-col>
+        <ion-col  col-4>
+          <ion-card (click)="qrrembuer()">
+            <img  src="assets/imgs/REPORT.png" >
+            <p>CR Report</p>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+</div>
+
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>Add Item</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="addItem">
+      <ion-item>
+          <ion-label>Select Product Name</ion-label>
+          <select-searchable 
+              item-content
+              [(ngModel)]="product"
+              [items]="Products"
+              itemValueField="SOD_ProductId"
+              itemTextField="SOD_ProductName"
+              [canSearch]="true"
+              (onChange)="portChange($event)" [ngModelOptions]="{standalone: true}">
+          </select-searchable>
+      </ion-item>
+    <ion-item>
+      <ion-label floating>Quantity</ion-label>
+      <ion-input type="number" formControlName="qty"></ion-input>
+    </ion-item>
+    <div padding-horizontal>
+      <div class="alert" *ngIf="!addItem.controls['qty'].valid && addItem.controls['qty'].touched">Please
+        Enter Quantity</div>
+    </div>
+    <ion-item>
+      <ion-label>Select Del. Location</ion-label>
+      <ion-select interface="popover" [(ngModel)]="location" [ngModelOptions]="{standalone: true}">
+          <ion-option *ngFor="let location of locations" [value]="location">{{location.SOD_DeliveryLocationName}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item (click)="opencal('Del')">
+      <ion-label class="marginlbl">{{ orderdate }}</ion-label>
+    </ion-item>
+    <!-- <ion-item (click)="opencal('Comm')">
+      <ion-label class="marginlbl">{{ podate }}</ion-label>
+    </ion-item> -->
+    <div class="button_div">
+      <button ion-button (click)="add()" [disabled]="!addItem.valid" block>
+        Add Item
+      </button>
+    </div>
+  </form>
+</ion-content>

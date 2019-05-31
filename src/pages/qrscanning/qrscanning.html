@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar color="header">
+      <ion-title>CMS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div class="maincenter">
+    <h5>{{username}}</h5>
+    <p>Click on QR for Scanning</p>
+      <div style="text-align: center;">
+          <img src="assets/imgs/qrcode.png" (click)="scan()">
+        </div>
+      <!-- Float the icon right -->
+      <div class="button_div">
+        <button ion-button  (click)="home()">
+          Home
+        </button>
+      </div>
+  </div>
+ 
+</ion-content>

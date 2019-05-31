@@ -1,0 +1,59 @@
+page-reimbursement-details {
+    .borderdivP {
+        margin: 2px !important;
+    }
+    .tablealign{
+        text-align: left!important;
+    }
+    .tablealignright{
+        text-align: right!important;
+    }
+    .invoice {
+        border-top: 1px solid !important;
+        padding-top: 5px !important;
+        color: black !important;
+        margin: 2px !important;
+        font-size: 10px !important;
+        text-align: center !important;
+    }
+    .removeMrgin {
+        color: black !important;
+        margin: 2px !important;
+        font-size: 10px !important;
+        padding: 0px !important;
+        text-align: center !important;
+    }
+    .removeMrginpadding {
+        color: black !important;
+        font-size: 10px !important;
+        margin: 5px !important;
+        padding: 0px !important;
+    }
+    
+    .textcase{
+        //font-size: 12px;
+        text-align: left;
+        color: black !important;
+        margin: 2px !important;
+        padding: 0px !important;
+    }
+
+    .border{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    table,
+    th,
+    td {
+        padding: 2px;
+        font-size: 10px !important;
+        text-align: center;
+    }
+    .bckcolor {
+        background-color: grey !important;
+    }
+    p {
+        padding: 5px !important;
+        color: color($colors, header) !important;
+    }
+}
